@@ -1,148 +1,43 @@
-# Smart Brain - Face Recognition API
+Smart Brain API
+This is the backend API for the Smart Brain application, which allows for face recognition with sign-in and registration features. The API is built with Node.js and uses a PostgreSQL database to store user information and image data.
 
-This is the backend server for the Smart Brain application, which is a web application that enables face recognition. It features user registration and sign in functionality, allowing registered users to save their recognition history.
+The frontend for this application can be found in the smarbrain-frontend branch.
 
-The front-end application is built using React and can be found in the `smarbrain-frontend` branch of this repository.
+Getting Started
+To get started with the Smart Brain API, follow these instructions:
 
-## Getting Started
+Clone the repository using git clone https://github.com/your-username/smart-brain-api.git.
+Switch to the main branch using git checkout main.
+Install the required dependencies using npm install.
+Create a PostgreSQL database for the application and update the server.js file with your database information.
+Start the server using npm start.
+API Endpoints
+The following endpoints are available in the Smart Brain API:
 
-To get started, clone this repository and switch to the `main` branch:
+/signin
+This endpoint is used to sign in to the application. It requires a username and password to be provided in the request body.
 
-```
-git clone https://github.com/aakram9393/smart-brain-api.git
-cd smart-brain-api
-git checkout main
-```
+/register
+This endpoint is used to register a new user for the application. It requires a username, password, and email to be provided in the request body.
 
-### Prerequisites
+/image
+This endpoint is used to handle image recognition requests. It requires a valid user token to be provided in the request headers, along with an image URL in the request body.
 
-Make sure you have Node.js and npm installed on your system. You can download and install them from the official Node.js website: https://nodejs.org/
+/profile/:id
+This endpoint is used to retrieve user profile information. It requires a valid user token to be provided in the request headers, and the user ID to be provided in the request URL.
 
-### Installing
+Technologies Used
+The Smart Brain API is built with the following technologies:
 
-To install the required dependencies, run the following command in the project root directory:
+Node.js
+Express.js
+PostgreSQL
+Knex.js
+Contributing
+Contributions to the Smart Brain API are welcome! To contribute, follow these steps:
 
-```
-npm install
-```
-
-### Configuration
-
-You will need to configure the application by setting the following environment variables:
-
-- `DATABASE_URL`: The URL of your PostgreSQL database.
-- `JWT_SECRET`: A secret key used to sign JSON Web Tokens.
-
-You can set these environment variables by creating a `.env` file in the project root directory and adding the following lines:
-
-```
-DATABASE_URL=<your-database-url>
-JWT_SECRET=<your-jwt-secret>
-```
-
-Alternatively, you can set these environment variables directly on your system.
-
-### Running
-
-To start the application, run the following command in the project root directory:
-
-```
-npm start
-```
-
-The application will start listening on port `3000`.
-
-## API Endpoints
-
-The following endpoints are available in the API:
-
-### `/signin` [POST]
-
-Signs in the user with their email and password.
-
-Request body:
-
-```
-{
-  "email": "user@example.com",
-  "password": "password"
-}
-```
-
-Response body:
-
-```
-{
-  "id": 1,
-  "name": "John Doe",
-  "email": "user@example.com",
-  "entries": 0,
-  "joined": "2021-01-01T00:00:00.000Z"
-}
-```
-
-### `/register` [POST]
-
-Registers a new user with their name, email, and password.
-
-Request body:
-
-```
-{
-  "name": "John Doe",
-  "email": "user@example.com",
-  "password": "password"
-}
-```
-
-Response body:
-
-```
-{
-  "id": 1,
-  "name": "John Doe",
-  "email": "user@example.com",
-  "entries": 0,
-  "joined": "2021-01-01T00:00:00.000Z"
-}
-```
-
-### `/profile/:id` [GET]
-
-Retrieves the user profile for the specified user ID.
-
-Request parameters:
-
-- `id`: The ID of the user to retrieve.
-
-Response body:
-
-```
-{
-  "id": 1,
-  "name": "John Doe",
-  "email": "user@example.com",
-  "entries": 0,
-  "joined": "2021-01-01T00:00:00.000Z"
-}
-```
-
-### `/image` [PUT]
-
-Increments the user's entry count and returns the new entry count.
-
-Request body:
-
-```
-{
-  "id": 1
-}
-```
-
-Response body:
-
-```
-{
-  "entries": 1
-}
-```
+Fork the repository.
+Create a new branch for your changes.
+Make your changes and commit them with descriptive commit messages.
+Push your changes to your forked repository.
+Create a pull request to merge your changes into the main branch.
